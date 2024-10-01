@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Elvis</title>
+</head>
+<body>
+
+<h1>Conditionals in ThymeLeaf</h1>
+
+<!--elvis , teranry operator-->
+<p th:text="${isAdmin}?'Welcome Admin!':'Welcome User!'"></p>
+
+<!--if unless operator-->
+<p th:if="${gender}=='M'">Male</p>
+<p th:unless="${isAdmin}=='M'">Female</p>
+
+<!--Switch Case-->
+<h1>Switch Case</h1>
+<div th:switch="${gender}">
+    <p th:case="M">You are Male!</p>
+    <p th:case="F">You are Female!</p>
+    <p th:case="*">No gender specified!</p>
+</div>
+
+</body>
+</html>

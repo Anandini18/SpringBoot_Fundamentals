@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!--This line is necessary to use as, this tells the Thymeleaf engine to recognize & process attributes prefixed with "th:"-->
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+<!--    ADding css file in thymeleaf-->
+    <link rel="stylesheet" type="text/css" th:href="@{css/main.css}">
+<!--    Adding js file & defining its path-->
+    <script type="text/javascript" th:src="@{js/main.js}"></script>
+</head>
+<body>
+
+<p>This is home</p>
+<!--This name attribute & its value is already specified in the controller. -->
+<p>Hello, <span th:text="${name}"></span>!</p>
+<!--We can use pre built functions like strings.toUpperCase(name) using "#"-->
+<span th:text="${#strings.toUpperCase(name)}"></span>
+<!--with attribribute is used to define local variables withing the scope of the element it is applied to-->
+<div th:with="someVariable = ${someValue}, a=30, b=40">
+<!--    a & b can be accessed withing this div tag only.-->
+    <p th:text = "'Value of a*b : '+${a}*${b}"></p>
+</div>
+
+<button class="button-1" onclick="main()">Click Here</button>
+
+<!--include-->
+<!--<footer id="parent-footer" th:include="fragment/demoHtml::header">-->
+<!--    <h1>From Home</h1>-->
+<!--</footer>-->
+
+<!--insert-->
+<!--<footer id="parent-footer" th:include="fragment/demoHtml::header">-->
+<!--    <h1>From Home</h1>-->
+<!--</footer>-->
+
+<!--replace-->
+<footer id="parent-footer" th:replace="fragment/demoHtml::header">
+    <h1>From Home</h1>
+</footer>
+
+</body>
+</html>

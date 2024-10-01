@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>EachDemo</title>
+</head>
+
+<h1>Iteration in ThymeLeaf</h1>
+
+<body>
+<div th:each="names: ${list}">
+    <p th:text="${names}"></p>
+</div>
+
+<h3>Status Demo 1</h3>
+<!--Status Demo-->
+<div th:each="names, status: ${list}">
+    <p th:text="${status.index+1}+' '+${names}"></p>
+</div>
+
+<h3>Status Demo 2</h3>
+<div th:each="names, status: ${list}">
+    <p th:style="${status.odd}? 'color:red' : 'color:green' "  th:text="${status.index+1}+' '+${names}"></p>
+</div>
+
+</body>
+</html>
